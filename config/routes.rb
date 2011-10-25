@@ -1,10 +1,18 @@
 SampleApp::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/contact"
+  match '/contact', :to => 'pages#contact'
+  match '/about', :to => 'pages#about'
+  match '/help', :to => 'pages#help'
+  match '/', :to => 'pages#home'	#unnecessary
   
-  get "pages/about"
+  #set up the root path
+  root :to => 'pages/home'
+  
+  #remove the following when using the custom routes above.
+  #get "pages/home"
+  #get "pages/contact"
+  #get "pages/about"
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
